@@ -30,7 +30,11 @@ https://nidhin-codes.github.io/Tile-Matching-Game/
 
 ## Preview
 
+### Start
+![Start](images/Start.png)
 
+### End
+![End](images/End.png)
 
 ## Author
 Made by Nidhi
