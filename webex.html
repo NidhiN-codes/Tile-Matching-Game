@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .main{
+                width:600px;
+                height: auto;
+                padding:20px;
+                background:black;
+                border-radius:10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;  
+                margin: auto;
+                position: absolute;
+                top:170px;
+                left:450px;
+                }
+
+            button{
+                font-size: 50px;
+                width: 70px;
+                height: 70px;
+                border-radius: 20px;
+                background-color: #fd7373;
+        }
+            #final{
+                color: aliceblue;
+                font-size: 20px;
+            }
+
+        </style>
+    </head>
+<body style="background-color:#e2b5b5;">
+<div class="main">
+<h3 style="font-size: 45px;color: aliceblue;">CARD MATCHING GAME</h3>
+
+<div id="layout">
+    <button onclick="flip(this,0)">?</button>
+    <button onclick="flip(this,1)">?</button>
+    <button onclick="flip(this,2)">?</button>
+    <button onclick="flip(this,3)">?</button><br><br>
+    <button onclick="flip(this,4)">?</button>
+    <button onclick="flip(this,5)">?</button>
+    <button onclick="flip(this,6)">?</button>
+    <button onclick="flip(this,7)">?</button>
+</div><br>
+
+<p id="final"></p>
+</div>
+<script>
+let cards = ["❀","❀","☺︎","☺︎","♡","♡","☆","☆"];
+cards.sort(() => Math.random() - 0.5);
+
+let value = "";
+let Butn;
+let count = 0;   
+
+function flip(btn, i){
+    btn.innerHTML = cards[i];
+
+    if(value == ""){
+        value = cards[i];
+        Butn = btn;
+    } else {
+        if(value == cards[i]){
+            count++;        
+            value = "";
+
+            if(count == 4){   
+                document.getElementById("final").innerHTML = "Good Job! You Win!";
+            }
+
+        } else {
+            setTimeout(() => {
+                btn.innerHTML = "?";
+                Butn.innerHTML = "?";
+                value = ""; 
+            }, 600);
+        }
+    }
+}
+</script>
+
+</body>
+</html>
